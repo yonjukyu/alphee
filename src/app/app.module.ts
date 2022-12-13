@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire/compat";
+import { ConnexionComponent } from './connexion/connexion.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeBoxComponent } from './home-box/home-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ConnexionComponent,
+    HeaderComponent,
+    HomeBoxComponent
   ],
   imports: [
     BrowserModule,
