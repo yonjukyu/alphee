@@ -1,0 +1,36 @@
+header{
+  width: 100%;
+  height: 7%;
+  position: fixed;
+  opacity: 0.55;
+  background-color: rgb(243,184,154);
+  z-index: 999;
+  transition: 0.7s;
+  text-align: center;
+  .items{
+    margin-left: 10px ;
+    float: right;
+    font-size: 20px;
+    color: black;
+    visibility: hidden;
+  }
+  .title{
+    width: 5%;
+    transition: 0.7s;
+  }
+}
+ header:hover{
+   opacity: 0.9;
+   transition: 0.7s;
+   height: 9%;
+   margin-left: 0%;
+   .items{
+     visibility: visible;
+     font-size: 22px;
+     transition: 1s;
+   }
+   .title{
+     width: 7%;
+     transition: 0.7s;
+   }
+ }
