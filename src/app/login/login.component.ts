@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserServices} from "../../services/UserServices";
-import {ProductServices} from "../../services/productServices";
-import {Product} from "../../models/Product";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {User} from "../../models/User";
+import {NgToastService} from "ng-angular-popup";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,31 +10,43 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  userEmail!: String;
-  userPassword!: String;
+  userEmail: string = "";
+  userPassword: string = "";
+  setupOnce: boolean = true;
+  usersScratch: any[] = [];
+  usersFinals: User[] = [];
+  errorTxt!: string;
+  doesExist!: boolean;
 
-  productsScratch: any[] = [];
-  productsFinals: Product[] = [];
-  constructor(private store: AngularFirestore) {}
+  constructor(private store: AngularFirestore,
+              public router: Router) {
+  }
 
   ngOnInit(): void {
-    this.setupProducts();
-    console.log(this.productsFinals)
+    this.setupUsers();
   }
-  setupProducts(): Array<any>{
-    this.store.collection('product').valueChanges().subscribe(product => product.forEach(i => {
-      this.productsScratch.push(i)
+
+  setupUsers(): Array<any> {
+    this.store.collection('user').valueChanges().subscribe(user => user.forEach(i => {
+      this.usersScratch.push(i)
     }));
-    this.productsScratch.forEach(i => {
-      this.productsFinals.push(new Product(i.image, i.name, i.price, i.solded))
-      console.log(this.productsFinals)
+    this.usersScratch.forEach(i => {
+      this.usersFinals.push(new User(i.mail, i.password, i.subscribed))
     })
-    return this.productsFinals;
+    return this.usersFinals;
   }
 
   onSubmitForm(): void {
-    console.log("email = " + this.userEmail);
-    console.log("password = " + this.userPassword);
-    console.log(this.setupProducts());
+    if (this.setupOnce) {
+      console.log(this.setupUsers());
+      this.setupOnce = false;
+    }
+    this.usersFinals.forEach(user => {
+      if (this.userEmail == user.email && this.userPassword == user.password){
+        this.doesExist = true;
+      }
+    });
+    if(this.doesExist) this.router.navigate([""]);
+    else this.errorTxt = "Mot de passe erroné";
   }
 }

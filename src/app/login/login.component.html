@@ -10,9 +10,9 @@
     <input type="password" placeholder="Password" id="passwordInput" [(ngModel)]="userPassword" name="userPassword">
   </label>
   <button class="red" type="submit"><i class="icon ion-md-lock"></i> Log in</button>
-
+  <a class="errorTxt"> {{errorTxt}}</a>
   <div class="segment">
-    <button class="unit" type="button"><i class="icon ion-md-settings"></i> Register </button>
+    <button class="unit" type="button" routerLink="register"><i class="icon ion-md-settings"></i> Register </button>
   </div>
 
 </form>

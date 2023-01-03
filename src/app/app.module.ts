@@ -10,6 +10,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeBoxComponent } from './home-box/home-box.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     ConnexionComponent,
     HeaderComponent,
     HomeBoxComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

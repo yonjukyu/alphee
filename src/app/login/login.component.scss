@@ -113,3 +113,10 @@ button {
     flex: 1;
   }
 }
+.errorTxt{
+  text-decoration: none;
+  color: #61677C;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+}
