@@ -9,6 +9,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import { ConnexionComponent } from './connexion/connexion.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeBoxComponent } from './home-box/home-box.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeBoxComponent } from './home-box/home-box.component';
     HomeComponent,
     ConnexionComponent,
     HeaderComponent,
-    HomeBoxComponent
+    HomeBoxComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
