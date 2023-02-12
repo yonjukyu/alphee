@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductServices} from "../../services/productServices";
 import {Product} from "../../models/Product";
+import {CollectionTile} from "../models/collectionTile";
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,18 @@ import {Product} from "../../models/Product";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit{
-
+  collectionTileList!: CollectionTile[];
   ngOnInit(): void {
+    this.collectionTileList = [
+      {
+        imgUrl: "assets/img.jpg",
+        title: "Collection 1 "
+      },
+      {
+        imgUrl: "assets/img.jpg",
+        title: "Collection 2 "
+      }];
+
   }
   constructor( ) {}
-
 }

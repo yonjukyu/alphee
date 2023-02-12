@@ -1,0 +1,39 @@
+.box{
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  justify-content: center;
+
+  .image{
+    z-index: 1;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
+  .center_div{
+    /* position */
+    z-index: 2;
+    width: 50%;
+    height: 50%;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+
+
+    /* Beauty */
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    background-color: rgba(255,255,255,0.1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: 0.5s;
+  }
+
+  .center_div:hover{
+    background-color: rgba(255,255,255,0.5);
+    height: 60%;
+    width: 60%;
+    transition: 0.5s;
+  }
+}
+

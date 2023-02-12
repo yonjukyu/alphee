@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeBoxComponent } from './home-box/home-box.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { HomeFullLengthBoxComponent } from './home-full-length-box/home-full-length-box.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     HomeBoxComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeFullLengthBoxComponent
   ],
   imports: [
     BrowserModule,
