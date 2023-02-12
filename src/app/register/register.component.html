@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmitForm()">
+  <div class="segment">
+    <h1>Sign up</h1>
+  </div>
+
+  <label for="emailInput">
+    <input type="email" id="emailInput" placeholder="Email Address" [(ngModel)]="userEmail" name="userEmail"/>
+  </label>
+  <label for="passwordInput">
+    <input type="password" placeholder="Password" id="passwordInput" [(ngModel)]="userPassword" name="userPassword">
+  </label>
+  <label for="passwordInput">
+    <input type="password" placeholder="Rewrite Your Password" id="passwordInputTwo" [(ngModel)]="userPasswordTwo" name="userPasswordTwo">
+  </label>
+  <button class="red" type="submit"><i class="icon ion-md-lock"></i> Register</button>
+  <a class="errorTxt"> {{errorTxt}}</a>
+  <div class="segment">
+    <button class="unit" type="button"><i class="icon ion-md-settings"></i> Register </button>
+  </div>
+
+</form>
