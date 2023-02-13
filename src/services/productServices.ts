@@ -17,7 +17,7 @@ export class ProductServices implements OnInit{
       this.productsScratch.push(i)
     }));
     this.productsScratch.forEach(i => {
-      this.productsFinals.push(new Product(i.image, i.name, i.price, i.solded))
+      this.productsFinals.push(new Product(i.collection ,i.image, i.name, i.price, i.solded))
       console.log(this.productsFinals)
     })
     return this.productsFinals;

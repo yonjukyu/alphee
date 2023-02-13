@@ -3,15 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './component/home/home.component';
 import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire/compat";
-import { ConnexionComponent } from './connexion/connexion.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeBoxComponent } from './home-box/home-box.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeFullLengthBoxComponent } from './home-full-length-box/home-full-length-box.component';
+import { ConnexionComponent } from './component/connexion/connexion.component';
+import { HeaderComponent } from './component/header/header.component';
+import { HomeBoxComponent } from './component/home-box/home-box.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { HomeFullLengthBoxComponent } from './component/home-full-length-box/home-full-length-box.component';
+import { CollectionPreviewComponent } from './component/collection-preview/collection-preview.component';
+import { ProductComponent } from './component/product/product.component';
+import { FooterComponent } from './component/footer/footer.component';
+import {ConnexionService} from "../services/connexionService";
+import { TestButtonComponent } from './component/test-button/test-button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,11 @@ import { HomeFullLengthBoxComponent } from './home-full-length-box/home-full-len
     HomeBoxComponent,
     LoginComponent,
     RegisterComponent,
-    HomeFullLengthBoxComponent
+    HomeFullLengthBoxComponent,
+    CollectionPreviewComponent,
+    ProductComponent,
+    FooterComponent,
+    TestButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,7 @@ import { HomeFullLengthBoxComponent } from './home-full-length-box/home-full-len
         measurementId: "G-6MR36DPQ86"
     })
   ],
-  providers: [],
+  providers: [ConnexionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

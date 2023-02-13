@@ -1,14 +1,26 @@
 export class Product {
+  private _collection!: string;
   private _image!: string;
   private _name!: string;
   private _price!: number;
   private _solded!: boolean;
 
-  constructor(image: string, name: string, price: number, solded: boolean) {
+
+  constructor(collection: string,image: string, name: string, price: number, solded: boolean) {
+    this._collection = collection;
     this._image = image;
     this._name = name;
     this._price = price;
     this._solded = solded;
+  }
+
+
+  get collection(): string {
+    return this._collection;
+  }
+
+  set collection(value: string) {
+    this._collection = value;
   }
 
   get image(): string {

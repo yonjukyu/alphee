@@ -1,0 +1,67 @@
+.box1{
+  border: 3px rgb(220,220,220);
+  width: 32%;
+  position: absolute;
+  left: 1%;
+  top: 0px;
+  bottom: 0px;
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/794/441/247/space-digital-art-vertical-wallpaper-preview.jpg");
+  background-size: 100%;
+  transition: 0.5s;
+  .txt{
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    color: white;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+  }
+}
+.box1:hover{
+  width: 33%;
+  transition: 0.5s;
+  left: 0.5%;;
+  .txt{
+    font-size: 25px;
+    transition: 0.5s;
+  }
+}
+
+.box2{
+  border: 3px rgb(220,220,220);
+  width: 32%;
+  position: absolute;
+  left: 34%;
+  top: 0px;
+  bottom: 0px;
+  background-image: url("https://i.pinimg.com/originals/25/0f/33/250f3318d2388e93d12c61ee522642d0.jpg");
+  background-size: 100%;
+  transition: 0.5s;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.box2:hover{
+  width: 33%;
+  transition: 0.5s;
+  left: 33.5%;
+}
+.box3{
+  border:3px rgb(220,220,220);
+  width: 32%;
+  position: absolute;
+  left: 67%;
+  top: 0px;
+  bottom: 0px;
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/794/441/247/space-digital-art-vertical-wallpaper-preview.jpg");
+  background-size: 100%;
+  transition: 0.5s;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.box3:hover{
+  width: 33%;
+  transition: 0.5s;
+  left: 66.5%;
+}
