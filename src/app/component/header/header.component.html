@@ -4,8 +4,8 @@
     <a class="profil" (click)="onConnexion()"> {{buttonText}}</a>
     <div class="nav-bar">
       <ul class="nav justify-content-center">
-        <li class="nav-item" *ngFor="let collection of collectionNames">
-          <a class="nav-link active" href="collection/{{collection}}">{{collection}}</a>
+        <li class="" *ngFor="let collection of collectionNames">
+          <a class="nav-link-vrai" href="collection/{{collection}}">{{collection | titlecase}}</a>
         </li>
       </ul>
     </div>

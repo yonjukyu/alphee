@@ -22,9 +22,11 @@ export class HeaderComponent implements OnInit {
       let name = i.collection
       if(this.collectionNames.length > 0){
         this.collectionNames.forEach(collectionName => {
+          let added = false;
           console.log(name + " + " + collectionName)
-          if (name != collectionName) {
+          if (name != collectionName && !added) {
             this.collectionNames.push(name)
+            added = true
           }
         })
       }else this.collectionNames.push(name)
