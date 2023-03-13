@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire/compat";
-import { ConnexionComponent } from './component/connexion/connexion.component';
 import { HeaderComponent } from './component/header/header.component';
 import { HomeBoxComponent } from './component/home-box/home-box.component';
 import { LoginComponent } from './component/login/login.component';
@@ -22,7 +21,6 @@ import { TestButtonComponent } from './component/test-button/test-button.compone
   declarations: [
     AppComponent,
     HomeComponent,
-    ConnexionComponent,
     HeaderComponent,
     HomeBoxComponent,
     LoginComponent,
@@ -31,7 +29,7 @@ import { TestButtonComponent } from './component/test-button/test-button.compone
     CollectionPreviewComponent,
     ProductComponent,
     FooterComponent,
-    TestButtonComponent
+    TestButtonComponent,
   ],
   imports: [
     BrowserModule,

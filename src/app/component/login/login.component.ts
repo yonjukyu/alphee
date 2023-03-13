@@ -28,21 +28,20 @@ export class LoginComponent implements OnInit {
     this.setupUsers();
   }
 
-  setupUsers(): Array<any> {
+  setupUsers() {
+    this.usersFinals.length = 0;
     this.store.collection('user').valueChanges().subscribe(user => user.forEach(i => {
       this.usersScratch.push(i)
     }));
     this.usersScratch.forEach(i => {
       this.usersFinals.push(new User(i.mail, i.password, i.subscribed))
     })
-    return this.usersFinals;
+    console.log(this.usersFinals)
+    this.usersScratch.length = 0;
   }
 
   onSubmitForm(): void {
-    if (this.setupOnce) {
-      console.log(this.setupUsers());
-      this.setupOnce = false;
-    }
+    this.setupUsers()
     this.usersFinals.forEach(user => {
       if (this.userEmail == user.email && this.userPassword == user.password){
         this.connexionService.connected = true;

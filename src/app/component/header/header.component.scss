@@ -24,6 +24,16 @@ header{
     text-decoration: none;
     font-size: 250%;
   }
+  .nav-bar{
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    transition: 0.7s;
+    width: 100%;
+    font-size: 0;
+    text-decoration: none;
+    color: red;
+  }
 }
  header:hover{
    transition: 0.7s;
@@ -39,5 +49,12 @@ header{
    .title{
      color: black;
      transition: 0.7s;
+   }
+   .nav-bar{
+     visibility: visible;
+     transition: 0.7s;
+     background-color: white;
+     text-align: center;
+     font-size: medium;
    }
  }
