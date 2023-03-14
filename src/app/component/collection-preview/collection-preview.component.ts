@@ -21,9 +21,6 @@ export class CollectionPreviewComponent implements OnInit {
     const collectionName = this.route.snapshot.params['collectionName'];
     this.store.collection('product').valueChanges().subscribe(product => product.forEach(i => {
       let productScratch: any = i;
-      console.log(productScratch.collection + " == " + collectionName);
-      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH")
-      console.log(productScratch.collection == collectionName)
       if (productScratch.collection == collectionName) {
         this.collection.name = collectionName;
         this.collection.product.push(

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {User} from "../../../models/User";
-import {NgToastService} from "ng-angular-popup";
 import {Router} from "@angular/router";
 import {ConnexionService} from "../../../services/connexionService";
 

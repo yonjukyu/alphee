@@ -9,17 +9,7 @@ import {CollectionTile} from "../../../models/collectionTile";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit{
-  collectionTileList!: CollectionTile[];
   ngOnInit(): void {
-    this.collectionTileList = [
-      {
-        imgUrl: "assets/img.jpg",
-        title: "spring"
-      },
-      {
-        imgUrl: "assets/img.jpg",
-        title: "winter"
-      }];
 
   }
   constructor( ) {}

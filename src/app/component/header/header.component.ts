@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ConnexionService} from "../../../services/connexionService";
 import {Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import firebase from "firebase/compat";
 
 @Component({
   selector: 'app-header',
@@ -23,17 +22,15 @@ export class HeaderComponent implements OnInit {
       if(this.collectionNames.length > 0){
         this.collectionNames.forEach(collectionName => {
           let added = false;
-          console.log(name + " + " + collectionName)
           if (name != collectionName && !added) {
             this.collectionNames.push(name)
             added = true
           }
         })
       }else this.collectionNames.push(name)
+      console.log(this.connexionService.connected)
 
     }));
-    console.log(this.collectionNames)
-
     if(this.connexionService.connected){
       this.buttonText = "Deconnexion";
     }
