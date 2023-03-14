@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ConnexionService} from "../../../services/connexionService";
 import {Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import firebase from "firebase/compat";
 
 @Component({
   selector: 'app-header',
@@ -11,10 +10,18 @@ import firebase from "firebase/compat";
 })
 export class HeaderComponent implements OnInit {
   buttonText!: string
-
+  nav: any = document.querySelector('nav')
   collectionNames!: any[]
   constructor(private connexionService: ConnexionService,  private route: Router, private store: AngularFirestore) { }
 
+  @HostListener("window:scroll", []) onWindowScroll() {
+    let element = document.querySelector('.navbar') as HTMLElement;
+    if (window.pageYOffset > element.clientHeight) {
+      element.classList.add('navbar-inverse');
+    } else {
+      element.classList.remove('navbar-inverse');
+    }
+  }
   ngOnInit(): void {
     this.collectionNames = [];
     this.store.collection('product').valueChanges().subscribe(user => user.forEach(i => {
@@ -23,17 +30,15 @@ export class HeaderComponent implements OnInit {
       if(this.collectionNames.length > 0){
         this.collectionNames.forEach(collectionName => {
           let added = false;
-          console.log(name + " + " + collectionName)
           if (name != collectionName && !added) {
             this.collectionNames.push(name)
             added = true
           }
         })
       }else this.collectionNames.push(name)
+      console.log(this.connexionService.connected)
 
     }));
-    console.log(this.collectionNames)
-
     if(this.connexionService.connected){
       this.buttonText = "Deconnexion";
     }

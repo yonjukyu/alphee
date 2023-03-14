@@ -2,7 +2,12 @@
 html, body{
   margin: 0;
 }
-$nav-link-color: red;
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+@font-face {
+  font-family: queenside;
+  src: url(assets/fonts/Queensides-3z7Ey.ttf) format("opentype");
+}
 
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

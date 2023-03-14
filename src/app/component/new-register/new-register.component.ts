@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
+import { Component } from '@angular/core';
 import {User} from "../../../models/User";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Router} from "@angular/router";
 import {ConnexionService} from "../../../services/connexionService";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-new-register',
+  templateUrl: './new-register.component.html',
+  styleUrls: ['./new-register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class NewRegisterComponent {
   userEmail: string = "";
   userPassword: string = "";
   setupOnce: boolean = true;
