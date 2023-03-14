@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
+import { Component } from '@angular/core';
 import {User} from "../../../models/User";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Router} from "@angular/router";
 import {ConnexionService} from "../../../services/connexionService";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-new-login',
+  templateUrl: './new-login.component.html',
+  styleUrls: ['./new-login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class NewLoginComponent {
   userEmail: string = "";
   userPassword: string = "";
   setupOnce: boolean = true;
   usersScratch: any[] = [];
   usersFinals: User[] = [];
-  errorTxt!: string;
+  errorTxt: string = "";
   doesExist!: boolean;
 
   constructor(private store: AngularFirestore,
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   setupUsers() {
+    console.log("afge")
     this.usersFinals.length = 0;
     this.store.collection('user').valueChanges().subscribe(user => user.forEach(i => {
       this.usersScratch.push(i)

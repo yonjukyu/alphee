@@ -8,8 +8,6 @@ import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire/compat";
 import { HeaderComponent } from './component/header/header.component';
 import { HomeBoxComponent } from './component/home-box/home-box.component';
-import { LoginComponent } from './component/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
 import { HomeFullLengthBoxComponent } from './component/home-full-length-box/home-full-length-box.component';
 import { CollectionPreviewComponent } from './component/collection-preview/collection-preview.component';
 import { ProductComponent } from './component/product/product.component';
@@ -18,6 +16,9 @@ import {ConnexionService} from "../services/connexionService";
 import { TestButtonComponent } from './component/test-button/test-button.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CarouselComponent} from "./component/carousel/carousel.component";
+import { NewLoginComponent } from './component/new-login/new-login.component';
+import { NewRegisterComponent } from './component/new-register/new-register.component';
+import { ContactUsComponent } from './component/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,14 @@ import {CarouselComponent} from "./component/carousel/carousel.component";
     HomeComponent,
     HeaderComponent,
     HomeBoxComponent,
-    LoginComponent,
-    RegisterComponent,
     HomeFullLengthBoxComponent,
     CollectionPreviewComponent,
     ProductComponent,
     FooterComponent,
     TestButtonComponent,
+    NewLoginComponent,
+    NewRegisterComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

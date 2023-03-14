@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ConnexionService} from "../../../services/connexionService";
 import {Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
@@ -10,10 +10,18 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 })
 export class HeaderComponent implements OnInit {
   buttonText!: string
-
+  nav: any = document.querySelector('nav')
   collectionNames!: any[]
   constructor(private connexionService: ConnexionService,  private route: Router, private store: AngularFirestore) { }
 
+  @HostListener("window:scroll", []) onWindowScroll() {
+    let element = document.querySelector('.navbar') as HTMLElement;
+    if (window.pageYOffset > element.clientHeight) {
+      element.classList.add('navbar-inverse');
+    } else {
+      element.classList.remove('navbar-inverse');
+    }
+  }
   ngOnInit(): void {
     this.collectionNames = [];
     this.store.collection('product').valueChanges().subscribe(user => user.forEach(i => {
