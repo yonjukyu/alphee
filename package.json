@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "patch -N node_modules/@angular/fire/compat/firestore/interfaces.d.ts patches/package.patch || true"
+    "postinstall": ""
   },
   "private": true,
   "dependencies": {
