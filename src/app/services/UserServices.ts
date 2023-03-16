@@ -1,23 +1,23 @@
 import {Injectable, OnInit} from "@angular/core";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Subscription} from "rxjs";
-import {Product} from "../models/Product";
+import {User} from "../../models/User";
 
 @Injectable({
     providedIn: 'root'
 })
-export class ProductServices implements OnInit{
+export class UserServices implements OnInit{
   productsScratch: any[] = [];
-  productsFinals: Product[] = [];
+  productsFinals: User[] = [];
   constructor(private store: AngularFirestore) {}
 
 
   setupProducts(): Array<any>{
-    this.store.collection('product').valueChanges().subscribe(product => product.forEach(i => {
+    this.store.collection('user').valueChanges().subscribe(user => user.forEach(i => {
       this.productsScratch.push(i)
     }));
     this.productsScratch.forEach(i => {
-      this.productsFinals.push(new Product(i.collection ,i.image, i.name, i.price, i.solded))
+      this.productsFinals.push(new User(i.email, i.password, i.subscribed))
       console.log(this.productsFinals)
     })
     return this.productsFinals;
@@ -28,7 +28,7 @@ export class ProductServices implements OnInit{
     console.log(this.productsFinals)
   }
 
-  getAllProducts(): Product[]{
+  getAllProducts(): User[]{
     return this.productsFinals;
   }
 }

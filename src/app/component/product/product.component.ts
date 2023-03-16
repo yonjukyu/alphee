@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../../../models/Product";
-import {ConnexionService} from "../../../services/connexionService";
+import {ConnexionService} from "../../services/connexionService";
 import {Router} from "@angular/router";
 
 @Component({
@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
 
   onReserved(): void{
     if(this.connexionService.connected){
-      
+
     }
   }
 

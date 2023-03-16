@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgIf} from "@angular/common";
+import {CarouselProduct} from "../../../models/carouselProduct";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [NgbCarouselModule, NgIf],
+  imports: [NgbCarouselModule, NgIf, RouterLink],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent {
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  @Input()
+  carrouselProducts!: CarouselProduct[];
 }

@@ -1,18 +1,18 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {ConnexionService} from "../../../services/connexionService";
+import {ConnexionService} from "../../services/connexionService";
 import {Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   buttonText!: string
   nav: any = document.querySelector('nav')
   collectionNames!: any[]
-  constructor(private connexionService: ConnexionService,  private route: Router, private store: AngularFirestore) { }
+  constructor(private route: Router, private store: AngularFirestore, private connexionService: ConnexionService) { }
 
   @HostListener("window:scroll", []) onWindowScroll() {
     let element = document.querySelector('.navbar') as HTMLElement;
@@ -32,20 +32,20 @@ export class HeaderComponent implements OnInit {
           let added = false;
           if (name != collectionName && !added) {
             this.collectionNames.push(name)
-            added = true
           }
         })
       }else this.collectionNames.push(name)
-      console.log(this.connexionService.connected)
-
     }));
-    if(this.connexionService.connected){
-      this.buttonText = "Deconnexion";
-    }
-    else{ this.buttonText = "Connexion"}
+    console.log(this.connexionService.connected)
+    this.buttonText = this.connexionService.connected ? "Deconnexion" : "Connexion"
+  }
+
+  goToBottom(){
+    window.scrollTo(0,document.body.scrollHeight);
   }
 
   onConnexion(): void{
+    console.log(this.connexionService.connected)
     if(this.connexionService.connected){
       this.connexionService.connected = false;
       this.buttonText = "Connexion";
@@ -55,7 +55,5 @@ export class HeaderComponent implements OnInit {
     else{
       this.route.navigateByUrl("/login")
     }
-
   }
-
 }

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import {User} from "../../../models/User";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Router} from "@angular/router";
-import {ConnexionService} from "../../../services/connexionService";
+import {ConnexionService} from "../../services/connexionService";
+import {EncodingServiceService} from "../../services/encoding-service.service";
 
 @Component({
   selector: 'app-new-register',
@@ -20,7 +21,8 @@ export class NewRegisterComponent {
 
   constructor(private store: AngularFirestore,
               public router: Router,
-              private connexionService: ConnexionService) {
+              private connexionService: ConnexionService,
+              private encodingService: EncodingServiceService) {
   }
 
   ngOnInit(): void {
@@ -41,13 +43,14 @@ export class NewRegisterComponent {
   userExist(): boolean {
     let exist: boolean = false;
     this.usersFinals.forEach(user => {
-      console.log(this.userEmail + " et aussi " + user.email);
       if (this.userEmail == user.email) exist = true;
     });
     return exist;
   }
 
   onSubmitForm(): void {
+    console.log(this.encodingService.set(this.userPassword))
+    console.log(this.encodingService.get(this.encodingService.set(this.userPassword)))
     let regex = new RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
     if (this.setupOnce) {
       console.log(this.setupUsers());
@@ -56,7 +59,7 @@ export class NewRegisterComponent {
     if (!this.userExist())
     {
       if (regex.test(this.userEmail) && this.userPassword != "" && this.userPasswordTwo == this.userPassword) {
-        this.store.collection('user').add({mail: this.userEmail, password: this.userPassword, subscribed: false});
+        this.store.collection('user').add({mail: this.userEmail, password: this.encodingService.set(this.userPassword), subscribed: false});
         this.errorTxt = "accout created you will be redirected in 2 seconds";
         this.connexionService.connected = true;
         this.connexionService.email = this.userEmail;

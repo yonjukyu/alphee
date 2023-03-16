@@ -1,4 +1,5 @@
 <app-header></app-header>
-<div class="background" *ngIf="collection">
-  <app-product *ngFor="let product of collection.product" [product]="product"> </app-product>
+<div class="bg-light">
+  <app-carousel [carrouselProducts]="carouselProducts"></app-carousel>
+  <app-card-carousel  *ngFor="let product of collection.product" [product]="product" ></app-card-carousel>
 </div>

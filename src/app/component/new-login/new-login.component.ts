@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import {User} from "../../../models/User";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Router} from "@angular/router";
-import {ConnexionService} from "../../../services/connexionService";
+import {ConnexionService} from "../../services/connexionService";
+import {EncodingServiceService} from "../../services/encoding-service.service";
 
 @Component({
   selector: 'app-new-login',
   templateUrl: './new-login.component.html',
-  styleUrls: ['./new-login.component.scss']
+  styleUrls: ['./new-login.component.scss'],
 })
 export class NewLoginComponent {
   userEmail: string = "";
   userPassword: string = "";
-  setupOnce: boolean = true;
   usersScratch: any[] = [];
   usersFinals: User[] = [];
   errorTxt: string = "";
@@ -20,7 +20,8 @@ export class NewLoginComponent {
 
   constructor(private store: AngularFirestore,
               public router: Router,
-              private connexionService: ConnexionService) {
+              private connexionService: ConnexionService,
+              private encodingService: EncodingServiceService) {
   }
 
   ngOnInit(): void {
@@ -28,7 +29,6 @@ export class NewLoginComponent {
   }
 
   setupUsers() {
-    console.log("afge")
     this.usersFinals.length = 0;
     this.store.collection('user').valueChanges().subscribe(user => user.forEach(i => {
       this.usersScratch.push(i)
@@ -36,14 +36,13 @@ export class NewLoginComponent {
     this.usersScratch.forEach(i => {
       this.usersFinals.push(new User(i.mail, i.password, i.subscribed))
     })
-    console.log(this.usersFinals)
     this.usersScratch.length = 0;
   }
 
   onSubmitForm(): void {
     this.setupUsers()
     this.usersFinals.forEach(user => {
-      if (this.userEmail == user.email && this.userPassword == user.password){
+      if (this.userEmail == user.email && this.userPassword == this.encodingService.get(user.password)){
         this.connexionService.connected = true;
         this.connexionService.email = user.email;
         this.doesExist = true;

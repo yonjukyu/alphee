@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Collection} from "../../../models/collection";
 import {Product} from "../../../models/Product";
+import {CarouselProduct} from "../../../models/carouselProduct";
 
 @Component({
   selector: 'app-collection-preview',
@@ -12,7 +13,10 @@ import {Product} from "../../../models/Product";
 export class CollectionPreviewComponent implements OnInit {
   collection!: Collection;
   oneProduct!: Product;
-
+  carouselProducts: CarouselProduct[] = [
+    new CarouselProduct(  this.route.snapshot.params['collectionName'], "assets/img.jpg","ceci est une descriptio"),
+  new CarouselProduct(  this.route.snapshot.params['collectionName'],"assets/img2.jpg","ceci est une description"),
+  new CarouselProduct(  this.route.snapshot.params['collectionName'],"assets/twitter.png","ceci est une description")];
   constructor(private route: ActivatedRoute,
   private store: AngularFirestore) { }
 
@@ -29,7 +33,8 @@ export class CollectionPreviewComponent implements OnInit {
             productScratch.image,
             productScratch.name,
             productScratch.price,
-            productScratch.solded));
+            productScratch.solded,
+            productScratch.description));
       }
     }));
   }

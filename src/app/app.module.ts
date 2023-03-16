@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
@@ -11,14 +10,14 @@ import { HomeBoxComponent } from './component/home-box/home-box.component';
 import { HomeFullLengthBoxComponent } from './component/home-full-length-box/home-full-length-box.component';
 import { CollectionPreviewComponent } from './component/collection-preview/collection-preview.component';
 import { ProductComponent } from './component/product/product.component';
-import { FooterComponent } from './component/footer/footer.component';
-import {ConnexionService} from "../services/connexionService";
+import {ConnexionService} from "./services/connexionService";
 import { TestButtonComponent } from './component/test-button/test-button.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CarouselComponent} from "./component/carousel/carousel.component";
 import { NewLoginComponent } from './component/new-login/new-login.component';
 import { NewRegisterComponent } from './component/new-register/new-register.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
+import { CardCarouselComponent } from './component/card-carousel/card-carousel.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +28,11 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
     HomeFullLengthBoxComponent,
     CollectionPreviewComponent,
     ProductComponent,
-    FooterComponent,
     TestButtonComponent,
     NewLoginComponent,
     NewRegisterComponent,
     ContactUsComponent,
+    CardCarouselComponent,
   ],
   imports: [
     BrowserModule,

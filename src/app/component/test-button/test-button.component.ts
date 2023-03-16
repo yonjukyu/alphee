@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ConnexionService} from "../../../services/connexionService";
+import {ConnexionService} from "../../services/connexionService";
 
 @Component({
   selector: 'app-test-button',
