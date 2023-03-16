@@ -15,7 +15,7 @@
           <a class="nav-link text-light" tabindex="-1">COLLECTIONS : </a>
         </li>
         <li class="nav-item"*ngFor="let collection of collectionNames">
-          <a class="nav-link active text-light" routerLink="collection/{{collection}}">{{collection | titlecase}}</a>
+          <a class="nav-link active text-light" routerLink="/collection/{{collection}}">{{collection | titlecase}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" (click)="goToBottom()" tabindex="-1" style="cursor: pointer">Contactez-Nous</a>
