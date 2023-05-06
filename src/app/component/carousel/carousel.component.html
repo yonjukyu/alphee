@@ -1,29 +1,16 @@
-<ngb-carousel *ngIf="carrouselProducts" class="caroseljolise">
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="carrouselProducts[0].imgUrl" alt="Random first slide" routerLink="collection/{{carrouselProducts[0].title}}"/>
-    </div>
-    <div class="carousel-caption">
-      <h3>{{carrouselProducts[0].title}}</h3>
-      <p>{{carrouselProducts[0].description}}</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="carrouselProducts[1].imgUrl" alt="Random second slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>{{carrouselProducts[1].title}}</h3>
-      <p>{{carrouselProducts[1].description}}</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="carrouselProducts[2].imgUrl" alt="Random third slide" />
-    </div>
-    <div class="carousel-caption">
-      <h3>{{carrouselProducts[2].title}}</h3>
-      <p>{{carrouselProducts[2].description}}</p>
-    </div>
-  </ng-template>
+<ngb-carousel class="caroseljolise"
+[interval]="5000"
+[pauseOnHover] = false
+[pauseOnFocus] = false
+>
+    <ng-template ngbSlide *ngFor="let carrouselProduct of carrouselProducts">
+      <div class="picsum-img-wrapper">
+        <img [src]="carrouselProduct.imgUrl" alt="Random first slide" routerLink="collection/{{carrouselProduct.title}}"
+        style="cursor: pointer"/>
+      </div>
+      <div class="carousel-caption">
+        <h3>{{carrouselProduct.title}}</h3>
+        <p>{{carrouselProduct.description}}</p>
+      </div>
+    </ng-template>
 </ngb-carousel>

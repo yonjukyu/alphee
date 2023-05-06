@@ -12,11 +12,8 @@ import {CarouselProduct} from "../../../models/carouselProduct";
 })
 export class CollectionPreviewComponent implements OnInit {
   collection!: Collection;
-  oneProduct!: Product;
-  carouselProducts: CarouselProduct[] = [
-    new CarouselProduct(  this.route.snapshot.params['collectionName'], "assets/img.jpg","ceci est une descriptio"),
-  new CarouselProduct(  this.route.snapshot.params['collectionName'],"assets/img2.jpg","ceci est une description"),
-  new CarouselProduct(  this.route.snapshot.params['collectionName'],"assets/twitter.png","ceci est une description")];
+  carouselProducts: CarouselProduct[] = [];
+
   constructor(private route: ActivatedRoute,
   private store: AngularFirestore) { }
 
@@ -25,17 +22,23 @@ export class CollectionPreviewComponent implements OnInit {
     const collectionName = this.route.snapshot.params['collectionName'];
     this.store.collection('product').valueChanges().subscribe(product => product.forEach(i => {
       let productScratch: any = i;
+      let imagesFinals: string[] = productScratch.image.split("-",5)
+      console.log(imagesFinals)
       if (productScratch.collection == collectionName) {
+
         this.collection.name = collectionName;
         this.collection.product.push(
           new Product(
             productScratch._collection,
-            productScratch.image,
+            imagesFinals,
             productScratch.name,
             productScratch.price,
             productScratch.solded,
             productScratch.description));
+        this.carouselProducts.push(
+          new CarouselProduct(productScratch.name, "assets/"+productScratch.image, productScratch.description)
+        )
       }
-    }));
+    }))
   }
 }

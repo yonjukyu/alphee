@@ -4,3 +4,28 @@ img{
   object-fit: cover;
   object-position: center;
 }
+.carousel-item {
+  display: block !important;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  transition-delay: 0.25s;
+}
+
+.carousel-item.carousel-item-left,
+.carousel-item.carousel-item-right {
+  position: relative;
+  opacity: 1;
+}
+
+.carousel-item.active {
+  z-index: 1;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.carousel-item.active.carousel-item-left,
+.carousel-item.active.carousel-item-right {
+  opacity: 0;
+  transform: unset;
+}

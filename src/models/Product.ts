@@ -1,13 +1,13 @@
 export class Product {
   private _collection!: string;
-  private _image!: string;
+  private _image!: string[];
   private _name!: string;
   private _price!: number;
   private _solded!: boolean;
   private _description!: string;
 
 
-  constructor(collection: string,image: string, name: string, price: number, solded: boolean, description: string) {
+  constructor(collection: string,image: string[], name: string, price: number, solded: boolean, description: string) {
     this._collection = collection;
     this._image = image;
     this._name = name;
@@ -33,11 +33,11 @@ export class Product {
     this._collection = value;
   }
 
-  get image(): string {
+  get image(): string[] {
     return this._image;
   }
 
-  set image(value: string) {
+  set image(value: string[]) {
     this._image = value;
   }
 
