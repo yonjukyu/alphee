@@ -22,12 +22,15 @@ export class CollectionPreviewComponent implements OnInit {
     const collectionName = this.route.snapshot.params['collectionName'];
     this.store.collection('product').valueChanges().subscribe(product => product.forEach(i => {
       let productScratch: any = i;
+      let imagesFinals: string[] = productScratch.image.split("-",5)
+      console.log(imagesFinals)
       if (productScratch.collection == collectionName) {
+
         this.collection.name = collectionName;
         this.collection.product.push(
           new Product(
             productScratch._collection,
-            [productScratch.image],
+            imagesFinals,
             productScratch.name,
             productScratch.price,
             productScratch.solded,

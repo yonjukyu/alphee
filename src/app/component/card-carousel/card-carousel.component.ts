@@ -16,7 +16,7 @@ export class CardCarouselComponent implements OnInit{
     this.product.image.forEach(
       imageUrl => {
         this.carrouselProducts.push(
-          new CarouselProduct("fea", "assets/"+imageUrl, ""),
+          new CarouselProduct("", "assets/"+imageUrl, ""),
         )
       }
     )

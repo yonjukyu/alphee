@@ -9,9 +9,8 @@ import {CarouselProduct} from "../../../models/carouselProduct";
 export class HomeComponent implements OnInit{
 
   carouselProducts: CarouselProduct[] = [
-    new CarouselProduct("spring","https://picsum.photos/id/944/900/500","COLLECTION 1 DESCRIPTION"),
-    new CarouselProduct("COLLECTION 2","https://picsum.photos/id/1011/900/500","COLLECTION 2 DESCRIPTION"),
-    new CarouselProduct("COLLECTION 3","https://picsum.photos/id/984/900/500","COLLECTION 3 DESCRIPTION"),
+    new CarouselProduct("Sombre Désir","../assets/homeCarrousel1.png","COLLECTION 1 DESCRIPTION"),
+    new CarouselProduct("Nuit torride","../assets/homeCarrousel2.png","COLLECTION 2 DESCRIPTION"),
   ]
 
   ngOnInit(): void {

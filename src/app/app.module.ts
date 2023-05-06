@@ -6,8 +6,6 @@ import { HomeComponent } from './component/home/home.component';
 import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "@angular/fire/compat";
 import { HeaderComponent } from './component/header/header.component';
-import { HomeBoxComponent } from './component/home-box/home-box.component';
-import { HomeFullLengthBoxComponent } from './component/home-full-length-box/home-full-length-box.component';
 import { CollectionPreviewComponent } from './component/collection-preview/collection-preview.component';
 import { ProductComponent } from './component/product/product.component';
 import {ConnexionService} from "./services/connexionService";
@@ -24,8 +22,6 @@ import { CardCarouselComponent } from './component/card-carousel/card-carousel.c
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    HomeBoxComponent,
-    HomeFullLengthBoxComponent,
     CollectionPreviewComponent,
     ProductComponent,
     TestButtonComponent,

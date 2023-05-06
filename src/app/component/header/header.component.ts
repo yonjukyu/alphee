@@ -12,7 +12,9 @@ export class HeaderComponent implements OnInit {
   buttonText!: string
   nav: any = document.querySelector('nav')
   collectionNames!: any[]
-  constructor(private route: Router, private store: AngularFirestore, private connexionService: ConnexionService) { }
+  collection!: any[]
+  constructor(private route: Router, private store: AngularFirestore, private connexionService: ConnexionService) {
+  }
 
   @HostListener("window:scroll", []) onWindowScroll() {
     let element = document.querySelector('.navbar') as HTMLElement;
@@ -22,37 +24,48 @@ export class HeaderComponent implements OnInit {
       element.classList.remove('navbar-inverse');
     }
   }
+
   ngOnInit(): void {
     this.collectionNames = [];
+    this.collection = []
     this.store.collection('product').valueChanges().subscribe(user => user.forEach(i => {
-      // @ts-ignore
-      let name = i.collection
-      if(this.collectionNames.length > 0){
-        this.collectionNames.forEach(collectionName => {
-          let added = false;
-          if (name != collectionName && !added) {
-            this.collectionNames.push(name)
+        // @ts-ignore
+      let name = i.collection.toUpperCase();
+      if (this.collectionNames.length == 0){
+        this.collectionNames.push(i)
+        this.collection.push(i)
+      }
+      else{
+        this.collectionNames.forEach(
+          nameFromCollection => {
+            let isUnique = true;
+            this.collection.forEach(
+              uniqueCollection => {
+                if (nameFromCollection.toUpperCase() == uniqueCollection.toUpperCase()){
+                  isUnique = false
+                }
+              }
+            )
           }
-        })
-      }else this.collectionNames.push(name)
+        )
+      }
+
     }));
-    console.log(this.connexionService.connected)
     this.buttonText = this.connexionService.connected ? "Deconnexion" : "Connexion"
   }
 
-  goToBottom(){
-    window.scrollTo(0,document.body.scrollHeight);
+  goToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
-  onConnexion(): void{
+  onConnexion(): void {
     console.log(this.connexionService.connected)
-    if(this.connexionService.connected){
+    if (this.connexionService.connected) {
       this.connexionService.connected = false;
       this.buttonText = "Connexion";
       this.connexionService.email = "";
       this.route.navigateByUrl("");
-    }
-    else{
+    } else {
       this.route.navigateByUrl("/login")
     }
   }

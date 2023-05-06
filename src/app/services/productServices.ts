@@ -27,8 +27,4 @@ export class ProductServices implements OnInit{
     this.setupProducts();
     console.log(this.productsFinals)
   }
-
-  getAllProducts(): Product[]{
-    return this.productsFinals;
-  }
 }
