@@ -1,27 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-opacity-75 fixed-top" style="background-color: rgba(249,228,183,70%);" (scroll)="onWindowScroll()">
+<nav class="navbar navbar-expand-lg navbar-light bg-opacity-75 fixed-top" style="background-color: rgba(2, 6, 89,70%); height: 10%" (scroll)="onWindowScroll()">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <h1 class="nav-item text-dark " routerLink=""
-        style="font-family: 'Dancing Script',cursive,Arial;
+    <h1 class="nav-item text-light " routerLink=""
+        style="font-family: 'Cinzel',cursive,Arial;
          font-size: 20px;
          cursor: pointer"> ALPHEE <span style="font-family: 'Dancing Script',cursive,Arial;"> Lingerie</span></h1>
     <div class="row justify-content-center">
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-lg-0 justify-content-center">
           <li>
-            <a class="nav-link text-dark" tabindex="-1">COLLECTIONS : </a>
+            <a class="nav-link text-light" tabindex="-1">COLLECTIONS : </a>
           </li>
-            <a class="nav-link active text-dark" routerLink="/collection/Sombre Désir">Sombre Désir</a>
-            <a class="nav-link active text-dark" routerLink="/collection/Nuit torride">Nuit torride</a>
+            <a class="nav-link active text-light" href="/collection/Sombre Désir">Sombre Désir</a>
+            <a class="nav-link active text-light" href="/collection/Nuit torride">Nuit torride</a>
+          <a class="nav-link active text-light" href="/collection/Lune de miel">Lune de miel</a>
           <li class="nav-item">
-            <a class="nav-link text-dark" (click)="goToBottom()" tabindex="-1"
+            <a class="nav-link text-light" (click)="goToBottom()" tabindex="-1"
                style="cursor: pointer">Contactez-Nous</a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="light"
+            <button class="btn btn-outline-light btn-rounded" data-mdb-ripple-color="light"
                     (click)="onConnexion()">{{buttonText}}</button>
           </li>
         </ul>
